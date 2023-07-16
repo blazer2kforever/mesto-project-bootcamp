@@ -15,27 +15,31 @@
   </head>
   <body class="root">
     <div class="page">
+      <section class="popup">
+        <div class="popup__container">
+          <button class="popup__close-button button" type="button"></button>
+          <form class="popup__form" name="profile">
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <input
+              class="popup__input"
+              name="name"
+              type="text"
+              value="Жак-Ив Кусто"
+            />
+            <input
+              class="popup__input"
+              name="status"
+              type="text"
+              value="Исследователь океана"
+            />
+            <button class="popup__save-button" type="submit">Сохранить</button>
+          </form>
+        </div>
+      </section>
       <header class="header">
         <img src="./images/logo.svg" alt="Логотип" class="header__logo" />
       </header>
       <main class="content">
-        <section class="popup">
-          <div class="popup__container">
-            <button class="popup__close-button button"></button>
-            <form class="popup__form">
-              <h2 class="popup__title">Редактировать профиль</h2>
-              <input class="popup__input" type="text" value="Жак-Ив Кусто" />
-              <input
-                class="popup__input"
-                type="text"
-                value="Исследователь океана"
-              />
-              <button class="popup__save-button" type="submit">
-                Сохранить
-              </button>
-            </form>
-          </div>
-        </section>
         <section class="profile">
           <img
             src="./images/avatar.jpg"
@@ -45,11 +49,14 @@
           <div class="profile__info">
             <div class="profile__heading">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
-              <button class="profile__edit-button button"></button>
+              <button
+                class="profile__edit-button button"
+                type="button"
+              ></button>
             </div>
             <p class="profile__subheading">Исследователь океана</p>
           </div>
-          <button class="profile__add-button button"></button>
+          <button class="profile__add-button button" type="button"></button>
         </section>
         <section class="gallery">
           <ul class="gallery__list">
@@ -61,7 +68,7 @@
               />
               <div class="gallery__description">
                 <h2 class="gallery__title">Карачаевск</h2>
-                <button class="gallery__like-button"></button>
+                <button class="gallery__like-button" type="button"></button>
               </div>
             </li>
             <li class="gallery__item">
@@ -72,7 +79,7 @@
               />
               <div class="gallery__description">
                 <h2 class="gallery__title">Гора Эльбрус</h2>
-                <button class="gallery__like-button"></button>
+                <button class="gallery__like-button" type="button"></button>
               </div>
             </li>
             <li class="gallery__item">
@@ -83,7 +90,7 @@
               />
               <div class="gallery__description">
                 <h2 class="gallery__title">Домбай</h2>
-                <button class="gallery__like-button"></button>
+                <button class="gallery__like-button" type="button"></button>
               </div>
             </li>
             <li class="gallery__item">
@@ -94,7 +101,7 @@
               />
               <div class="gallery__description">
                 <h2 class="gallery__title">Гора Эльбрус</h2>
-                <button class="gallery__like-button"></button>
+                <button class="gallery__like-button" type="button"></button>
               </div>
             </li>
             <li class="gallery__item">
@@ -105,7 +112,7 @@
               />
               <div class="gallery__description">
                 <h2 class="gallery__title">Домбай</h2>
-                <button class="gallery__like-button"></button>
+                <button class="gallery__like-button" type="button"></button>
               </div>
             </li>
             <li class="gallery__item">
@@ -116,7 +123,7 @@
               />
               <div class="gallery__description">
                 <h2 class="gallery__title">Карачаево-Черкессия</h2>
-                <button class="gallery__like-button"></button>
+                <button class="gallery__like-button" type="button"></button>
               </div>
             </li>
           </ul>

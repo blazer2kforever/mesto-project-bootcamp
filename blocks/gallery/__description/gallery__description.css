@@ -6,6 +6,6 @@
   background-color: #fff;
   border-radius: 0 0 10px 10px;
   box-sizing: border-box;
-  max-height: 79px;
+  min-height: 79px;
   padding: 25px 20px 26px 21px;
 }

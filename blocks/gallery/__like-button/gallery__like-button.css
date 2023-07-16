@@ -1,8 +1,9 @@
 .gallery__like-button {
-  width: 22px;
-  height: 19px;
+  min-width: 22px;
+  min-height: 19px;
   border: none;
   background-color: rgba(0, 0, 0, 0);
+  background-size: 22px 19px;
 
   background-image: url(../../../images/like-button.svg);
   background-position: center;
