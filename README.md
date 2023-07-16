@@ -29,7 +29,7 @@
 
 ## Live-демо
 
-Доступно на [GitHub Pages](https://blazer2kforever.github.io/russian-travel-bootcamp/).
+Доступно на [GitHub Pages](https://blazer2kforever.github.io/mesto-project-bootcamp/).
 
 ## Дальнейшие планы
 
