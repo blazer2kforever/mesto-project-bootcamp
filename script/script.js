@@ -13,6 +13,7 @@ const popupLink = document.querySelector('.popup__input-link');
 
 const popupImage = document.querySelector('.popup__image');
 const imagePopup = popupImage.closest('.popup');
+const popupDescription = document.querySelector('.popup__description');
 
 const popupCloseButtons = document.querySelectorAll('.popup__close-button');
 const popupSaveButtons = document.querySelectorAll('.popup__save-button');
@@ -61,7 +62,7 @@ function buildCard(item) {
 
   image.addEventListener('click', () => {
     openPopup(imagePopup);
-    viewImage(item.name, item.link);
+    viewImage(item.place, item.link);
   });
 
   likeButton.addEventListener('click', toggleLike);
@@ -96,6 +97,7 @@ function clearImageInfo() {
 function viewImage(place, link) {
   popupImage.src = link;
   popupImage.alt = place;
+  popupDescription.textContent = place;
 }
 
 function addNewCard() {
