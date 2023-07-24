@@ -14,7 +14,61 @@ const popupLink = document.querySelector('.popup__input-link');
 const popupCloseButtons = document.querySelectorAll('.popup__close-button');
 const popupSaveButtons = document.querySelectorAll('.popup__save-button');
 
-const likeButtons = document.querySelectorAll('.gallery__like-button');
+const cards = document.querySelector('.gallery__list');
+const cardTemplate = document.querySelector('#card').content;
+const card = cardTemplate.querySelector('.gallery__item');
+
+const defaultCards = [
+  {
+    place: 'Карачаевск',
+    link: './images/karachaevsk.jpg',
+  },
+  {
+    place: 'Гора Эльбрус',
+    link: './images/elbrus.jpg',
+  },
+  {
+    place: 'Домбай',
+    link: './images/dombai.jpg',
+  },
+  {
+    place: 'Гора Эльбрус',
+    link: './images/elbrus.jpg',
+  },
+  {
+    place: 'Домбай',
+    link: './images/dombai.jpg',
+  },
+  {
+    place: 'Карачаево-Черкессия',
+    link: './images/karachaevsk.jpg',
+  },
+];
+
+function buildCard(item) {
+  const node = card.cloneNode(true);
+  const place = node.querySelector('.gallery__title');
+  const image = node.querySelector('.gallery__image');
+  const likeButton = node.querySelector('.gallery__like-button');
+  const trashButton = node.querySelector('.gallery__trash-button');
+
+  place.textContent = item.place;
+  image.src = item.link;
+  image.alt = item.place;
+
+  likeButton.addEventListener('click', toggleLike);
+  trashButton.addEventListener('click', () => {
+    node.remove();
+  });
+
+  return node;
+}
+
+function addDefaultCards() {
+  defaultCards.forEach((item) => {
+    cards.append(buildCard(item));
+  });
+}
 
 function renderProfileInfo() {
   popupUsername.value = profileName.textContent;
@@ -29,6 +83,10 @@ function setProfileInfo() {
 function clearImageInfo() {
   popupPlace.value = '';
   popupLink.value = '';
+}
+
+function addNewCard() {
+  cards.prepend(buildCard({ place: popupPlace.value, link: popupLink.value }));
 }
 
 function openPopup(item) {
@@ -61,6 +119,7 @@ popupSaveButtons.forEach((button) => {
     if (currentPopupClasslist.contains('popup__edit-profile')) {
       setProfileInfo();
     } else if (currentPopupClasslist.contains('popup__add-image')) {
+      addNewCard();
       clearImageInfo();
     }
   });
@@ -72,8 +131,5 @@ popupCloseButtons.forEach((button) => {
   });
 });
 
-likeButtons.forEach((button) => {
-  button.addEventListener('click', toggleLike);
-});
-
 renderProfileInfo();
+addDefaultCards();

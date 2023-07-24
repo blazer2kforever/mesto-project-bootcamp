@@ -84,80 +84,23 @@
           <button class="profile__add-button button" type="button"></button>
         </section>
         <section class="gallery">
-          <ul class="gallery__list">
-            <li class="gallery__item">
-              <img
-                class="gallery__image"
-                src="./images/karachaevsk.jpg"
-                alt="Церковь в горах"
-              />
-              <div class="gallery__description">
-                <h2 class="gallery__title">Карачаевск</h2>
-                <button class="gallery__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="gallery__item">
-              <img
-                class="gallery__image"
-                src="./images/elbrus.jpg"
-                alt="Горы"
-              />
-              <div class="gallery__description">
-                <h2 class="gallery__title">Гора Эльбрус</h2>
-                <button class="gallery__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="gallery__item">
-              <img
-                class="gallery__image"
-                src="./images/dombai.jpg"
-                alt="Скала и лес"
-              />
-              <div class="gallery__description">
-                <h2 class="gallery__title">Домбай</h2>
-                <button class="gallery__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="gallery__item">
-              <img
-                class="gallery__image"
-                src="./images/elbrus.jpg"
-                alt="Горы"
-              />
-              <div class="gallery__description">
-                <h2 class="gallery__title">Гора Эльбрус</h2>
-                <button class="gallery__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="gallery__item">
-              <img
-                class="gallery__image"
-                src="./images/dombai.jpg"
-                alt="Скала и лес"
-              />
-              <div class="gallery__description">
-                <h2 class="gallery__title">Домбай</h2>
-                <button class="gallery__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="gallery__item">
-              <img
-                class="gallery__image"
-                src="./images/karachaevsk.jpg"
-                alt="Церковь в горах"
-              />
-              <div class="gallery__description">
-                <h2 class="gallery__title">Карачаево-Черкессия</h2>
-                <button class="gallery__like-button" type="button"></button>
-              </div>
-            </li>
-          </ul>
+          <ul class="gallery__list"></ul>
         </section>
       </main>
       <footer class="footer">
         <p class="footer__copyright">© 2020 Mesto Russia</p>
       </footer>
     </div>
+    <template id="card">
+      <article class="gallery__item">
+        <img class="gallery__image" src="" alt="" />
+        <button class="gallery__trash-button button" type="button"></button>
+        <div class="gallery__description">
+          <h2 class="gallery__title"></h2>
+          <button class="gallery__like-button" type="button"></button>
+        </div>
+      </article>
+    </template>
     <script src="./script/script.js"></script>
   </body>
 </html>

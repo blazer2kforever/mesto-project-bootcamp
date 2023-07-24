@@ -1,0 +1,9 @@
+.gallery__trash-button {
+  position: absolute;
+  width: 18px;
+  height: 19px;
+  top: 20px;
+  right: 20px;
+  background-image: url(../../../images/trash-button.svg);
+  border: none;
+}
