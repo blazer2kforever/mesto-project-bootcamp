@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,22 +15,47 @@
   </head>
   <body class="root">
     <div class="page">
-      <section class="popup">
+      <section class="popup popup__edit-profile">
         <div class="popup__container">
           <button class="popup__close-button button" type="button"></button>
           <form class="popup__form" name="profile">
             <h2 class="popup__title">Редактировать профиль</h2>
             <input
-              class="popup__input"
-              name="name"
+              class="popup__input popup__input-username"
+              name="user-name"
               type="text"
-              value="Жак-Ив Кусто"
+              value=""
+              placeholder="Имя"
             />
             <input
-              class="popup__input"
-              name="status"
+              class="popup__input popup__input-userstatus"
+              name="user-status"
               type="text"
-              value="Исследователь океана"
+              value=""
+              placeholder="Прозвище"
+            />
+            <button class="popup__save-button" type="submit">Сохранить</button>
+          </form>
+        </div>
+      </section>
+      <section class="popup popup__add-image">
+        <div class="popup__container">
+          <button class="popup__close-button button" type="button"></button>
+          <form class="popup__form" name="profile">
+            <h2 class="popup__title">Новое место</h2>
+            <input
+              class="popup__input popup__input-place"
+              name="card-place"
+              type="text"
+              value=""
+              placeholder="Название"
+            />
+            <input
+              class="popup__input popup__input-link"
+              name="card-link"
+              type="text"
+              value=""
+              placeholder="Ссылка на картинку"
             />
             <button class="popup__save-button" type="submit">Сохранить</button>
           </form>
