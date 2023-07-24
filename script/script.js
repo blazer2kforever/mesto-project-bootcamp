@@ -11,6 +11,9 @@ const addPopup = document.querySelector('.popup__add-image');
 const popupPlace = document.querySelector('.popup__input-place');
 const popupLink = document.querySelector('.popup__input-link');
 
+const popupImage = document.querySelector('.popup__image');
+const imagePopup = popupImage.closest('.popup');
+
 const popupCloseButtons = document.querySelectorAll('.popup__close-button');
 const popupSaveButtons = document.querySelectorAll('.popup__save-button');
 
@@ -56,6 +59,11 @@ function buildCard(item) {
   image.src = item.link;
   image.alt = item.place;
 
+  image.addEventListener('click', () => {
+    openPopup(imagePopup);
+    viewImage(item.name, item.link);
+  });
+
   likeButton.addEventListener('click', toggleLike);
   trashButton.addEventListener('click', () => {
     node.remove();
@@ -83,6 +91,11 @@ function setProfileInfo() {
 function clearImageInfo() {
   popupPlace.value = '';
   popupLink.value = '';
+}
+
+function viewImage(place, link) {
+  popupImage.src = link;
+  popupImage.alt = place;
 }
 
 function addNewCard() {
