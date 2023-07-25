@@ -24,28 +24,28 @@ const card = cardTemplate.querySelector('.gallery__item');
 
 const defaultCards = [
   {
-    place: 'Карачаевск',
-    link: './images/karachaevsk.jpg',
+    place: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
   },
   {
-    place: 'Гора Эльбрус',
-    link: './images/elbrus.jpg',
+    place: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
   },
   {
-    place: 'Домбай',
-    link: './images/dombai.jpg',
+    place: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
   },
   {
-    place: 'Гора Эльбрус',
-    link: './images/elbrus.jpg',
+    place: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
   },
   {
-    place: 'Домбай',
-    link: './images/dombai.jpg',
+    place: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
   },
   {
-    place: 'Карачаево-Черкессия',
-    link: './images/karachaevsk.jpg',
+    place: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
   },
 ];
 
