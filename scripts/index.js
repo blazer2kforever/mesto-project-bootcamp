@@ -16,38 +16,15 @@ const imagePopup = popupImage.closest('.popup');
 const popupDescription = document.querySelector('.popup__description');
 
 const popupCloseButtons = document.querySelectorAll('.popup__close-button');
+
+const editForm = document.querySelector('.popup__form-profile');
+const imageForm = document.querySelector('.popup__form-image');
+
 const popupSaveButtons = document.querySelectorAll('.popup__save-button');
 
 const cards = document.querySelector('.gallery__list');
 const cardTemplate = document.querySelector('#card').content;
 const card = cardTemplate.querySelector('.gallery__item');
-
-const defaultCards = [
-  {
-    place: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
-  },
-  {
-    place: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
-  },
-  {
-    place: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
-  },
-  {
-    place: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
-  },
-  {
-    place: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
-  },
-  {
-    place: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
-  },
-];
 
 function buildCard(item) {
   const node = card.cloneNode(true);
@@ -125,19 +102,17 @@ addButton.addEventListener('click', () => {
   openPopup(addPopup);
 });
 
-popupSaveButtons.forEach((button) => {
-  button.addEventListener('click', (event) => {
-    event.preventDefault();
-    closePopup(button.closest('.popup'));
+editForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  setProfileInfo();
+  closePopup(editForm.closest('.popup'));
+});
 
-    const currentPopupClasslist = button.closest('.popup').classList;
-    if (currentPopupClasslist.contains('popup__edit-profile')) {
-      setProfileInfo();
-    } else if (currentPopupClasslist.contains('popup__add-image')) {
-      addNewCard();
-      clearImageInfo();
-    }
-  });
+imageForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  addNewCard();
+  clearImageInfo();
+  closePopup(imageForm.closest('.popup'));
 });
 
 popupCloseButtons.forEach((button) => {

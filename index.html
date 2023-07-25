@@ -15,10 +15,10 @@
   </head>
   <body class="root">
     <div class="page">
-      <section class="popup popup__edit-profile">
+      <div class="popup popup__edit-profile">
         <div class="popup__container">
           <button class="popup__close-button button" type="button"></button>
-          <form class="popup__form" name="profile">
+          <form class="popup__form popup__form-profile" name="edit-profile">
             <h2 class="popup__title">Редактировать профиль</h2>
             <input
               class="popup__input popup__input-username"
@@ -26,6 +26,7 @@
               type="text"
               value=""
               placeholder="Имя"
+              required
             />
             <input
               class="popup__input popup__input-userstatus"
@@ -33,15 +34,16 @@
               type="text"
               value=""
               placeholder="Прозвище"
+              required
             />
             <button class="popup__save-button" type="submit">Сохранить</button>
           </form>
         </div>
-      </section>
-      <section class="popup popup__add-image">
+      </div>
+      <div class="popup popup__add-image">
         <div class="popup__container">
           <button class="popup__close-button button" type="button"></button>
-          <form class="popup__form" name="profile">
+          <form class="popup__form popup__form-image" name="add-image">
             <h2 class="popup__title">Новое место</h2>
             <input
               class="popup__input popup__input-place"
@@ -49,6 +51,7 @@
               type="text"
               value=""
               placeholder="Название"
+              required
             />
             <input
               class="popup__input popup__input-link"
@@ -56,18 +59,19 @@
               type="text"
               value=""
               placeholder="Ссылка на картинку"
+              required
             />
             <button class="popup__save-button" type="submit">Сохранить</button>
           </form>
         </div>
-      </section>
-      <section class="popup popup__view-image popup_dimmed">
+      </div>
+      <div class="popup popup__view-image popup_dimmed">
         <div class="popup__container popup__container_flexible">
           <button class="popup__close-button button" type="button"></button>
           <img class="popup__image" src="" alt="" />
           <p class="popup__description"></p>
         </div>
-      </section>
+      </div>
       <header class="header">
         <img src="./images/logo.svg" alt="Логотип" class="header__logo" />
       </header>
@@ -108,6 +112,7 @@
         </div>
       </article>
     </template>
-    <script src="./script/script.js"></script>
+    <script src="./scripts/cards.js"></script>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>
