@@ -11,52 +11,15 @@ const addPopup = document.querySelector('.popup__add-image');
 const popupPlace = document.querySelector('.popup__input-place');
 const popupLink = document.querySelector('.popup__input-link');
 
-const popupImage = document.querySelector('.popup__image');
-const imagePopup = popupImage.closest('.popup');
-const popupDescription = document.querySelector('.popup__description');
-
-const popupCloseButtons = document.querySelectorAll('.popup__close-button');
-
 const editForm = document.querySelector('.popup__form-profile');
 const imageForm = document.querySelector('.popup__form-image');
 
-const popupSaveButtons = document.querySelectorAll('.popup__save-button');
+import { openPopup, closePopup } from '../components/modal.js';
+import { addDefaultCards, addNewCard } from '../components/card.js';
+import { enableValidation } from '../components/validate.js';
+import { defaultCards, validationConfig } from '../components/settings.js';
 
-const cards = document.querySelector('.gallery__list');
-const cardTemplate = document.querySelector('#card').content;
-const card = cardTemplate.querySelector('.gallery__item');
-
-function buildCard(item) {
-  const node = card.cloneNode(true);
-  const place = node.querySelector('.gallery__title');
-  const image = node.querySelector('.gallery__image');
-  const likeButton = node.querySelector('.gallery__like-button');
-  const trashButton = node.querySelector('.gallery__trash-button');
-
-  place.textContent = item.place;
-  image.src = item.link;
-  image.alt = item.place;
-
-  image.addEventListener('click', () => {
-    openPopup(imagePopup);
-    viewImage(item.place, item.link);
-  });
-
-  likeButton.addEventListener('click', toggleLike);
-  trashButton.addEventListener('click', () => {
-    node.remove();
-  });
-
-  return node;
-}
-
-function addDefaultCards() {
-  defaultCards.forEach((item) => {
-    cards.append(buildCard(item));
-  });
-}
-
-function renderProfileInfo() {
+function updateProfileInfo() {
   popupUsername.value = profileName.textContent;
   popupUserstatus.value = profileStatus.textContent;
 }
@@ -71,55 +34,27 @@ function clearImageInfo() {
   popupLink.value = '';
 }
 
-function viewImage(place, link) {
-  popupImage.src = link;
-  popupImage.alt = place;
-  popupDescription.textContent = place;
-}
-
-function addNewCard() {
-  cards.prepend(buildCard({ place: popupPlace.value, link: popupLink.value }));
-}
-
-function openPopup(item) {
-  item.classList.add('popup_opened');
-}
-
-function closePopup(item) {
-  item.classList.remove('popup_opened');
-}
-
-function toggleLike() {
-  this.classList.toggle('gallery__like-button_checked');
-}
-
 editButton.addEventListener('click', () => {
   openPopup(editPopup);
-  renderProfileInfo();
+  updateProfileInfo();
 });
 
 addButton.addEventListener('click', () => {
   openPopup(addPopup);
-});
-
-editForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  setProfileInfo();
-  closePopup(editForm.closest('.popup'));
-});
-
-imageForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  addNewCard();
   clearImageInfo();
-  closePopup(imageForm.closest('.popup'));
 });
 
-popupCloseButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    closePopup(button.closest('.popup'));
-  });
+editForm.addEventListener('submit', () => {
+  setProfileInfo();
+  closePopup();
 });
 
-renderProfileInfo();
-addDefaultCards();
+imageForm.addEventListener('submit', () => {
+  addNewCard(popupPlace.value, popupLink.value);
+  clearImageInfo();
+  closePopup();
+});
+
+updateProfileInfo();
+addDefaultCards(defaultCards);
+enableValidation(validationConfig);

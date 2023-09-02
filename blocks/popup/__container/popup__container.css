@@ -9,6 +9,8 @@
   padding: 34px 36px 37px;
 
   background-color: #fff;
+
+  cursor: default;
 }
 
 @media screen and (max-width: 767px) {
