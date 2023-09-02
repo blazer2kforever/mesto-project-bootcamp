@@ -1,27 +1,36 @@
+const defaultImagesLinks = [
+  new URL('../images/arkhyz.jpg', import.meta.url),
+  new URL('../images/chelyabinsk-oblast.jpg', import.meta.url),
+  new URL('../images/ivanovo.jpg', import.meta.url),
+  new URL('../images/kamchatka.jpg', import.meta.url),
+  new URL('../images/kholmogorsky-rayon.jpg', import.meta.url),
+  new URL('../images/baikal.jpg', import.meta.url),
+];
+
 const defaultCards = [
   {
     place: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
+    link: defaultImagesLinks[0],
   },
   {
     place: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
+    link: defaultImagesLinks[1],
   },
   {
     place: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
+    link: defaultImagesLinks[2],
   },
   {
     place: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
+    link: defaultImagesLinks[3],
   },
   {
     place: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
+    link: defaultImagesLinks[4],
   },
   {
     place: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
+    link: defaultImagesLinks[5],
   },
 ];
 

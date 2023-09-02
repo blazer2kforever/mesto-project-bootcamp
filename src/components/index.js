@@ -1,3 +1,5 @@
+import '../pages/index.css';
+
 const profileName = document.querySelector('.profile__name');
 const profileStatus = document.querySelector('.profile__subheading');
 
@@ -14,10 +16,10 @@ const popupLink = document.querySelector('.popup__input-link');
 const editForm = document.querySelector('.popup__form-profile');
 const imageForm = document.querySelector('.popup__form-image');
 
-import { openPopup, closePopup } from '../components/modal.js';
-import { addDefaultCards, addNewCard } from '../components/card.js';
-import { enableValidation } from '../components/validate.js';
-import { defaultCards, validationConfig } from '../components/settings.js';
+import { openPopup, closePopup } from './modal.js';
+import { addDefaultCards, addNewCard } from './card.js';
+import { enableValidation } from './validate.js';
+import { defaultCards, validationConfig } from './utils.js';
 
 function updateProfileInfo() {
   popupUsername.value = profileName.textContent;

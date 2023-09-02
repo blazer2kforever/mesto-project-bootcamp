@@ -11,17 +11,21 @@
     <meta name="author" content="Фёдор Васильев" />
     <meta name="author" content="Яндекс.Практикум" />
     <title>Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css" />
+    <!-- <link rel="stylesheet" href="./pages/index.css" /> -->
   </head>
   <body class="root">
     <div class="page">
       <header class="header">
-        <img src="./images/logo.svg" alt="Логотип" class="header__logo" />
+        <img
+          src="<%=require('./images/logo.svg')%>"
+          alt="Логотип"
+          class="header__logo"
+        />
       </header>
       <main class="content">
         <section class="profile">
           <img
-            src="./images/avatar.jpg"
+            src="<%=require('./images/avatar.jpg')%>"
             alt="Аватар профиля"
             class="profile__avatar"
           />
@@ -72,7 +76,7 @@
                 name="user-status"
                 type="text"
                 value=""
-                placeholder="Прозвище"
+                placeholder="О себе"
                 required
                 minlength="2"
                 maxlength="200"
@@ -142,6 +146,6 @@
         </div>
       </article>
     </template>
-    <script type="module" src="./scripts/index.js"></script>
+    <!-- <script type="module" src="./scripts/index.js"></script> -->
   </body>
 </html>

@@ -1,5 +1,5 @@
 import { resetValidationErrors } from './validate.js';
-import { validationConfig } from './settings.js';
+import { validationConfig } from './utils.js';
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
