@@ -18,7 +18,7 @@ const imageForm = document.querySelector('.popup__form-image');
 
 import { openPopup, closePopup } from './modal.js';
 import { addDefaultCards, addNewCard } from './card.js';
-import { enableValidation } from './validate.js';
+import { enableValidation, resetValidationErrors } from './validate.js';
 import { defaultCards, validationConfig } from './utils.js';
 
 function updateProfileInfo() {
@@ -39,11 +39,13 @@ function clearImageInfo() {
 editButton.addEventListener('click', () => {
   openPopup(editPopup);
   updateProfileInfo();
+  resetValidationErrors(editForm, validationConfig);
 });
 
 addButton.addEventListener('click', () => {
   openPopup(addPopup);
   clearImageInfo();
+  resetValidationErrors(imageForm, validationConfig);
 });
 
 editForm.addEventListener('submit', () => {

@@ -1,6 +1,3 @@
-import { resetValidationErrors } from './validate.js';
-import { validationConfig } from './utils.js';
-
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   popup.addEventListener('click', handleClickClose);
@@ -8,11 +5,10 @@ function openPopup(popup) {
 }
 
 function closePopup() {
-  let popup = document.querySelector('.popup_opened');
+  const popup = document.querySelector('.popup_opened');
   popup.classList.remove('popup_opened');
   popup.removeEventListener('click', handleClickClose);
   document.removeEventListener('keydown', handleEscClose);
-  resetValidationErrors(validationConfig);
 }
 
 function handleEscClose(evt) {

@@ -3,9 +3,12 @@ import { openPopup } from './modal.js';
 const cards = document.querySelector('.gallery__list');
 
 const cardTemplate = document.querySelector('#card').content;
-export const card = cardTemplate.querySelector('.gallery__item');
+const card = cardTemplate.querySelector('.gallery__item');
 
-export const imagePopup = document.querySelector('.popup__view-image');
+const imagePopup = document.querySelector('.popup__view-image');
+
+const image = imagePopup.querySelector('.popup__image');
+const description = imagePopup.querySelector('.popup__description');
 
 function buildCard(item) {
   const node = card.cloneNode(true);
@@ -32,9 +35,6 @@ function buildCard(item) {
 }
 
 function setImage(place, link) {
-  const image = imagePopup.querySelector('.popup__image');
-  const description = imagePopup.querySelector('.popup__description');
-
   image.src = link;
   image.alt = place;
   description.textContent = place;

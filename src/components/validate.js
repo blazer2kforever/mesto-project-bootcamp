@@ -36,13 +36,10 @@ function changeButtonState(button, inputsArray, config) {
   }
 }
 
-function resetValidationErrors(config) {
-  const forms = document.querySelectorAll(config.formSelector);
-  forms.forEach((form) => {
-    const inputsArray = Array.from(form.querySelectorAll(config.inputSelector));
-    inputsArray.forEach((input) => {
-      hideInputError(form, input, config);
-    });
+function resetValidationErrors(form, config) {
+  const inputsArray = Array.from(form.querySelectorAll(config.inputSelector));
+  inputsArray.forEach((input) => {
+    hideInputError(form, input, config);
   });
 }
 
