@@ -32,8 +32,7 @@ function setProfileInfo() {
 }
 
 function clearImageInfo() {
-  popupPlace.value = '';
-  popupLink.value = '';
+  imageForm.reset();
 }
 
 editButton.addEventListener('click', () => {
