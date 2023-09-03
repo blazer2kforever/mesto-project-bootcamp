@@ -1,39 +1,3 @@
-const defaultImagesLinks = [
-  new URL('../images/arkhyz.jpg', import.meta.url),
-  new URL('../images/chelyabinsk-oblast.jpg', import.meta.url),
-  new URL('../images/ivanovo.jpg', import.meta.url),
-  new URL('../images/kamchatka.jpg', import.meta.url),
-  new URL('../images/kholmogorsky-rayon.jpg', import.meta.url),
-  new URL('../images/baikal.jpg', import.meta.url),
-];
-
-const defaultCards = [
-  {
-    place: 'Архыз',
-    link: defaultImagesLinks[0],
-  },
-  {
-    place: 'Челябинская область',
-    link: defaultImagesLinks[1],
-  },
-  {
-    place: 'Иваново',
-    link: defaultImagesLinks[2],
-  },
-  {
-    place: 'Камчатка',
-    link: defaultImagesLinks[3],
-  },
-  {
-    place: 'Холмогорский район',
-    link: defaultImagesLinks[4],
-  },
-  {
-    place: 'Байкал',
-    link: defaultImagesLinks[5],
-  },
-];
-
 const validationConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
@@ -43,4 +7,12 @@ const validationConfig = {
   buttonDisabledSelector: 'popup__save-button_disabled',
 };
 
-export { defaultCards, validationConfig };
+const networkConfig = {
+  url: 'https://nomoreparties.co/v1/wbf-cohort-11',
+  headers: {
+    authorization: 'b4d4e0d1-d19b-4b35-891c-88f5710bd461',
+    'Content-Type': 'application/json',
+  },
+};
+
+export { validationConfig, networkConfig };

@@ -6,4 +6,5 @@
   right: 20px;
   background-image: url(../../../images/trash-button.svg);
   border: none;
+  visibility: hidden;
 }
