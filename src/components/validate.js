@@ -38,8 +38,13 @@ function changeButtonState(button, inputsArray, config) {
 
 function resetValidationErrors(form, config) {
   const inputsArray = Array.from(form.querySelectorAll(config.inputSelector));
+  const buttonsArray = Array.from(form.querySelectorAll(config.buttonSelector));
   inputsArray.forEach((input) => {
     hideInputError(form, input, config);
+  });
+  buttonsArray.forEach((button) => {
+    button.setAttribute('disabled', true);
+    button.classList.add(config.buttonDisabledSelector);
   });
 }
 

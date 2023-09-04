@@ -32,15 +32,19 @@ import { validationConfig } from './utils.js';
 import { getUserInfo, changeUserInfo, setAvatar } from '../components/api.js';
 
 function setProfileInfoStartup() {
-  getUserInfo().then((user) => {
-    userData = user;
-    userID = user._id;
-    profileName.textContent = user.name;
-    profileStatus.textContent = user.about;
+  getUserInfo()
+    .then((user) => {
+      userData = user;
+      userID = user._id;
+      profileName.textContent = user.name;
+      profileStatus.textContent = user.about;
 
-    updateCards();
-    updateAvatarInfo();
-  });
+      updateCards();
+      updateAvatarInfo();
+    })
+    .catch((err) => {
+      alert(err);
+    });
 }
 
 function setButtonLoadingState(button, text) {
@@ -62,8 +66,7 @@ function updateAvatarInfo() {
 }
 
 function setAvatarInfo() {
-  avatarImage.src = avatarLink.value;
-  setAvatar(avatarLink.value);
+  return setAvatar(avatarLink.value);
 }
 
 function clearForm(form) {
@@ -73,6 +76,7 @@ function clearForm(form) {
 avatarButton.addEventListener('click', () => {
   openPopup(avatarPopup);
   clearForm(avatarForm);
+  resetValidationErrors(avatarForm, validationConfig);
 });
 
 editButton.addEventListener('click', () => {
@@ -92,12 +96,20 @@ avatarForm.addEventListener('submit', () => {
     avatarForm.querySelector('.popup__save-button'),
     'Сохранение...'
   );
-  setAvatarInfo();
-  closePopup();
-  setButtonLoadingState(
-    avatarForm.querySelector('.popup__save-button'),
-    'Сохранить'
-  );
+  setAvatarInfo()
+    .then(() => {
+      avatarImage.src = avatarLink.value;
+      closePopup();
+    })
+    .catch((err) => {
+      alert(err);
+    })
+    .finally(() => {
+      setButtonLoadingState(
+        avatarForm.querySelector('.popup__save-button'),
+        'Сохранить'
+      );
+    });
 });
 
 editForm.addEventListener('submit', () => {
@@ -105,14 +117,20 @@ editForm.addEventListener('submit', () => {
     editForm.querySelector('.popup__save-button'),
     'Сохранение...'
   );
-  setProfileInfo();
-  changeUserInfo(popupUsername.value, popupUserstatus.value).then(() => {
-    closePopup();
-    setButtonLoadingState(
-      editForm.querySelector('.popup__save-button'),
-      'Cохранить'
-    );
-  });
+  changeUserInfo(popupUsername.value, popupUserstatus.value)
+    .then(() => {
+      setProfileInfo();
+      closePopup();
+    })
+    .catch((err) => {
+      alert(err);
+    })
+    .finally(() => {
+      setButtonLoadingState(
+        editForm.querySelector('.popup__save-button'),
+        'Cохранить'
+      );
+    });
 });
 
 imageForm.addEventListener('submit', () => {
@@ -120,12 +138,19 @@ imageForm.addEventListener('submit', () => {
     imageForm.querySelector('.popup__save-button'),
     'Сохранение...'
   );
-  addNewCard(popupPlace.value, popupLink.value);
-  closePopup();
-  setButtonLoadingState(
-    imageForm.querySelector('.popup__save-button'),
-    'Cохранить'
-  );
+  addNewCard(popupPlace.value, popupLink.value)
+    .then(() => {
+      closePopup();
+    })
+    .catch((err) => {
+      alert(err);
+    })
+    .finally(() => {
+      setButtonLoadingState(
+        imageForm.querySelector('.popup__save-button'),
+        'Cохранить'
+      );
+    });
 });
 
 setProfileInfoStartup();

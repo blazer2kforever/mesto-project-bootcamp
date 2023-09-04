@@ -41,11 +41,17 @@ function sendCard(card) {
   });
 }
 
-function deleteCard(card) {
+function deleteCard(card, node) {
   return sendRequest(`${networkConfig.url}/cards/${card.cardId}`, 'DELETE', {
     name: card.name,
     link: card.link,
-  });
+  })
+    .then(() => {
+      node.remove();
+    })
+    .catch((err) => {
+      alert(err);
+    });
 }
 
 function likeCard(card, method) {

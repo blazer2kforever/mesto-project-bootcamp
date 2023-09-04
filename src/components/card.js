@@ -45,8 +45,7 @@ function buildCard(item) {
   if (userID === item.ownerId) {
     trashButton.classList.add('gallery__trash-button_visible');
     trashButton.addEventListener('click', () => {
-      node.remove();
-      deleteCard(item);
+      deleteCard(item, node);
     });
   }
 
@@ -67,14 +66,18 @@ function createCardTemplate(item) {
 }
 
 function updateCards() {
-  getCards().then((cardsData) => {
-    cardsArray = cardsData.map((item) => {
-      return createCardTemplate(item);
+  getCards()
+    .then((cardsData) => {
+      cardsArray = cardsData.map((item) => {
+        return createCardTemplate(item);
+      });
+      cardsArray.forEach((item) => {
+        cards.append(buildCard(item));
+      });
+    })
+    .catch((err) => {
+      alert(err);
     });
-    cardsArray.forEach((item) => {
-      cards.append(buildCard(item));
-    });
-  });
 }
 
 function setImage(place, link) {
@@ -84,29 +87,37 @@ function setImage(place, link) {
 }
 
 function toggleLike(card, button, count) {
-  if (
-    card.likes.some((like) => {
-      return like === userID;
-    })
-  ) {
-    likeCard(card, 'DELETE').then((res) => {
-      count.textContent = Number(res.likes.length);
-    });
-    button.classList.remove('gallery__like-button_checked');
+  if (button.classList.contains('gallery__like-button_checked')) {
+    likeCard(card, 'DELETE')
+      .then((res) => {
+        count.textContent = Number(res.likes.length);
+        button.classList.remove('gallery__like-button_checked');
+      })
+      .catch((err) => {
+        alert(err);
+      });
   } else {
-    likeCard(card, 'PUT').then((res) => {
-      count.textContent = Number(res.likes.length);
-    });
-    button.classList.add('gallery__like-button_checked');
+    likeCard(card, 'PUT')
+      .then((res) => {
+        count.textContent = Number(res.likes.length);
+        button.classList.add('gallery__like-button_checked');
+      })
+      .catch((err) => {
+        alert(err);
+      });
   }
 }
 
 function addNewCard(cardName, cardUrl) {
-  sendCard({ name: cardName, link: cardUrl }).then((res) => {
-    const cardToArray = createCardTemplate(res);
-    cardsArray.push(cardToArray);
-    cards.prepend(buildCard(cardToArray));
-  });
+  return sendCard({ name: cardName, link: cardUrl })
+    .then((res) => {
+      const cardToArray = createCardTemplate(res);
+      cardsArray.push(cardToArray);
+      cards.prepend(buildCard(cardToArray));
+    })
+    .catch((err) => {
+      alert(err);
+    });
 }
 
 export { buildCard, addNewCard, updateCards };
